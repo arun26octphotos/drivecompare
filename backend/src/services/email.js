@@ -1,6 +1,6 @@
 const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM = process.env.EMAIL_FROM || 'noreply@drivecompare.com';
 
 /**
@@ -61,6 +61,11 @@ async function sendRateAlertEmail({ to, userName, vehicle, quotes }) {
       </p>
     </body>
     </html>`;
+
+  if (!resend) {
+    console.warn('[Email] RESEND_API_KEY not set — skipping email to', to);
+    return { id: 'skipped' };
+  }
 
   return resend.emails.send({
     from: FROM,
