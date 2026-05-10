@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: drivecompare-api
+    env: node
+    region: oregon
+    plan: free          # upgrade to starter ($7/mo) for always-on
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      # Set these in the Render dashboard (never commit secrets):
+      # SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, JWT_SECRET,
+      # RESEND_API_KEY, EMAIL_FROM, FRONTEND_URL

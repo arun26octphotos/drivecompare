@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(echo \"FE_INSTALLED=$?\")",
+      "Bash(echo \"BE_INSTALLED=$?\")",
+      "Bash(npm run *)",
+      "Bash(./node_modules/.bin/tsc --noEmit)",
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(/Users/ammu/Desktop/Arun/Projects/drivecompare/node_modules/.bin/vite --root frontend --port 5173)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(/Users/ammu/Desktop/Arun/Projects/drivecompare/node_modules/.bin/vite --port 5173)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
